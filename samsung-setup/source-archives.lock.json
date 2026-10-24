@@ -1,0 +1,17 @@
+{
+  "description": "Source snapshots accompanying the local offline kit; Fermata 2.0.1 source is this repository itself.",
+  "archives": [
+    {
+      "fileName": "KingInstaller-2.3-source.tar.gz",
+      "url": "https://api.github.com/repos/fcaronte/KingInstaller/tarball/2.3",
+      "size": 630119,
+      "sha256": "ba4c13c8c2122d5701ed4c545c7b9ea0d7c9efc30eedc43a0ffff0d52ba126ab"
+    },
+    {
+      "fileName": "Shizuku-13.6.0-source.tar.gz",
+      "url": "https://api.github.com/repos/RikkaApps/Shizuku/tarball/v13.6.0",
+      "size": 360878,
+      "sha256": "40cd341ba8619ad75bb47cec392d7a698691f918713dc06efa1d20f49e938738"
+    }
+  ]
+}

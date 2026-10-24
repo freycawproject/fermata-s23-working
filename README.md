@@ -1,3 +1,19 @@
+## Samsung S23: konfigurasi yang teruji
+
+Branch ini berangkat dari source Fermata **2.0.1**, commit
+`7be970dbc1d68f674886af3e9a4e4ad838e56bc4`. Kode aplikasi upstream tidak diubah.
+Tambahan ada di **[samsung-setup/README.id.md](samsung-setup/README.id.md)**:
+versi APK yang dipatok, checksum, KingInstaller 2.3, Shizuku opsional, DHU 2.1,
+skrip PowerShell, dan **[prompt pemasangan](samsung-setup/prompts/SETUP.id.md)**.
+
+Fermata Auto dan video YouTube berhasil diuji di DHU pada Galaxy S23 / Android 16 /
+One UI 8.5 / Android Auto 17.8.663874. Pemasangan berhasil melalui KingInstaller
+metode biasa; tidak memerlukan Shizuku atau root pada perangkat yang diuji.
+Hasil di head unit mobil fisik belum diverifikasi. APK di kit adalah rilis resmi
+upstream, bukan hasil build ulang dari fork ini.
+
+---
+
 ## !!!Be aware of scam!!! The sites like https://fermata-auto.com/ are 100% scam. This app is free and opensource!
 
 

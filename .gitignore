@@ -16,3 +16,10 @@ res/*.jks
 # Custom builds
 fermata/src/custom/
 build-custom.gradle
+
+# Local downloads and device evidence from the Samsung setup kit
+/samsung-setup/artifacts/*
+!/samsung-setup/artifacts/.gitkeep
+/samsung-setup/reports/
+/samsung-setup/exports/
+*.git.bundle

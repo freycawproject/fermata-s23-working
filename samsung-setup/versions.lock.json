@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "verifiedDate": "2026-10-24",
+  "upstream": {
+    "repository": "https://github.com/AndreyPavlenko/Fermata",
+    "tag": "2.0.1",
+    "commit": "7be970dbc1d68f674886af3e9a4e4ad838e56bc4"
+  },
+  "deviceBaseline": {
+    "model": "SM-S911B",
+    "android": "16",
+    "oneUi": "8.5",
+    "androidAuto": "17.8.663874-release",
+    "abi": "arm64-v8a"
+  },
+  "fermataPackage": "me.aap.fermata.auto.dear.google.why",
+  "artifacts": [
+    {
+      "id": "fermata",
+      "version": "2.0.1",
+      "fileName": "fermata-auto-2.0.1-arm64.apk",
+      "optional": false,
+      "size": 146869440,
+      "sha256": "3385578dfb7161908d93dbac64c80759db7b6339d5d365961465fd36def07a58",
+      "hashSource": "GitHub release asset digest, matched against tested APK",
+      "url": "https://github.com/AndreyPavlenko/Fermata/releases/download/2.0.1/fermata-auto-2.0.1-arm64.apk",
+      "sourceUrl": "https://github.com/AndreyPavlenko/Fermata/tree/2.0.1",
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "kinginstaller",
+      "version": "2.3",
+      "package": "com.example.kinginstaller",
+      "fileName": "KingInstaller-v2.3.apk",
+      "optional": false,
+      "size": 8813204,
+      "sha256": "2dfa867b27ba7de4cf5a6948c1bc894d5861c20abe3d46a62e764476a7aa9ec1",
+      "hashSource": "GitHub release asset digest, matched against tested APK",
+      "url": "https://github.com/fcaronte/KingInstaller/releases/download/2.3/KingInstaller-v2.3.apk",
+      "sourceUrl": "https://github.com/fcaronte/KingInstaller/tree/2.3",
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "shizuku",
+      "version": "13.6.0.r1086.2650830c",
+      "package": "moe.shizuku.privileged.api",
+      "fileName": "shizuku-v13.6.0.r1086.2650830c-release.apk",
+      "optional": true,
+      "size": 2571773,
+      "sha256": "6e273ab0e991c4e79bc8b1bbb9b9dd739ccac1a8712a541a214078886b7b790f",
+      "hashSource": "Local SHA256 of official release downloaded in the original session; upstream asset digest unavailable",
+      "url": "https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk",
+      "sourceUrl": "https://github.com/RikkaApps/Shizuku/tree/v13.6.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "dhu",
+      "version": "2.1-preview-windows",
+      "fileName": "desktop-head-unit-windows-x64_r02.1.zip",
+      "optional": false,
+      "size": 7012059,
+      "sha256": "46f84b65b0862d5b548e46b976615a5db1853535732a728c875792ec166ae721",
+      "sha1": "c27bf84e59dda7b79315b6ca2a314063feffd6ac",
+      "hashSource": "Google SDK repository SHA1; local SHA256 of matching archive",
+      "url": "https://dl.google.com/android/repository/desktop-head-unit-windows-x64_r02.1.zip",
+      "sourceUrl": "https://developer.android.com/training/cars/testing/dhu",
+      "license": "Android SDK terms and bundled notices"
+    },
+    {
+      "id": "platform-tools",
+      "version": "37.0.1-windows",
+      "fileName": "platform-tools_r37.0.1-win.zip",
+      "optional": false,
+      "size": 8044989,
+      "sha256": "45f4d63113e895ebde0c90f194099a4676b6ac653bd28d54314a9e022bbc1a99",
+      "sha1": "e03e78b1d80b396f1c3358e31251cb31740e1110",
+      "hashSource": "Google SDK repository SHA1; local SHA256 of matching archive",
+      "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-win.zip",
+      "sourceUrl": "https://developer.android.com/tools/releases/platform-tools",
+      "license": "Android SDK terms and bundled notices"
+    }
+  ]
+}
