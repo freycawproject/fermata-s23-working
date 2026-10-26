@@ -1,8 +1,8 @@
 {
   "fileName": "fermata-samsung-public-v1.zip",
   "schemaVersion": 1,
-  "size": 840,
-  "sha256": "c217ea137c43c606c6389ff70a9666a810e94ba8a2473506cf18125af7c78d46",
+  "size": 836,
+  "sha256": "a4763a8c716f1e7ea610f95e21464292609933c2c75ce6f42c21780fa6056cc3",
   "entries": [
     "fermata.xml",
     "tvm3u.xml",
