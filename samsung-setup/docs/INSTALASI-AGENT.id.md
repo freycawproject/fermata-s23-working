@@ -141,14 +141,9 @@ jika tidak lagi diperlukan. Simpan backup dan profil yang berhasil.
 Prompt per tahap: samsung-setup/prompts/STEPS.id.md. Untuk melanjutkan sesi:
 samsung-setup/prompts/RESUME.id.md. Rincian preset: preferences/README.id.md.
 
-Repo: [fermata-s23-working](https://github.com/freycawproject/fermata-s23-working)
-
-Fermata: [rilis resmi 2.0.2](https://github.com/AndreyPavlenko/Fermata/releases/tag/2.0.2)
-
-KingInstaller: [rilis resmi 2.4](https://github.com/fcaronte/KingInstaller/releases/tag/2.4)
-
-DHU: [panduan Google](https://developer.android.com/training/cars/testing/dhu)
-
-Developer mode dan Unknown sources: [panduan Android Developers](https://developer.android.com/training/cars/testing)
-
-Playlist TV: [proyek IPTV-org](https://github.com/iptv-org/iptv)
+Referensi: [repo Samsung](https://github.com/freycawproject/fermata-s23-working),
+[Fermata 2.0.2](https://github.com/AndreyPavlenko/Fermata/releases/tag/2.0.2),
+[KingInstaller 2.4](https://github.com/fcaronte/KingInstaller/releases/tag/2.4),
+[Google DHU](https://developer.android.com/training/cars/testing/dhu),
+[Developer mode dan Unknown sources](https://developer.android.com/training/cars/testing),
+serta [playlist IPTV-org](https://github.com/iptv-org/iptv).
