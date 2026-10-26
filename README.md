@@ -6,6 +6,7 @@ Model Samsung lain belum dijamin kompatibel. Source aplikasi tetap 2.0.1;
 profil baru mengunduh APK resmi upstream 2.0.2, bukan hasil build branch ini.
 
 - [Mulai dan pilih profil](samsung-setup/README.id.md)
+- [Unduh paket rilis Latest](https://github.com/freycawproject/fermata-s23-working/releases/latest)
 - [PDF panduan instalasi melalui agent](samsung-setup/docs/INSTALASI-AGENT.id.pdf)
 - [Prompt lengkap](samsung-setup/prompts/SETUP.id.md) dan [prompt per tahap](samsung-setup/prompts/STEPS.id.md)
 - [Preset publik dengan URL TV](samsung-setup/preferences/README.id.md)

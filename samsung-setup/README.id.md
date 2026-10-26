@@ -1,5 +1,9 @@
 # Fermata Samsung: pemasangan melalui agent
 
+Paket unduhan: **[rilis Latest](https://github.com/freycawproject/fermata-s23-working/releases/latest)**.
+Rilis 26 Oktober menyertakan profil baru, PDF, prompt agent dan preset revisi 2.
+Rilis S23 24 Oktober tetap tersedia sebagai arsip konfigurasi lama.
+
 Mulai dengan **[prompt lengkap](prompts/SETUP.id.md)** pada agent yang memiliki akses
 terminal Windows, filesystem, dan ADB. Untuk sesi bertahap gunakan
 **[prompt per tahap](prompts/STEPS.id.md)**. Pengguna tetap menyelesaikan dialog izin
