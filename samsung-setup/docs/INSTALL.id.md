@@ -38,7 +38,14 @@ Panduan utama: [PDF](INSTALASI-AGENT.id.pdf), [sumber panduan](INSTALASI-AGENT.i
     verifikasi ON. Jangan mengetuk checkbox yang sudah ON. Ini bukan izin Install
     unknown apps Android. Jika alat tidak bisa mengaksesnya, minta pengguna
     menyelesaikan dialog lalu konfirmasi. Periksa launcher setelah reconnect bila
-    perlu; checkbox bukan jaminan penerimaan komponen proyeksi. Untuk DHU,
+    perlu; checkbox bukan jaminan penerimaan komponen proyeksi.
+    Buka Customize launcher/Sesuaikan peluncur. Dari tiga entri Fermata, centang
+    hanya Fermata Auto (ikon play biru), lalu hapus centang dua entri Fermata
+    lainnya sesuai nama di layar. Nama/jumlah dapat berbeda antar versi.
+    Jangan mengubah pilihan aplikasi lain atau menonaktifkan paket/service.
+    Sambungkan ulang Android Auto dan verifikasi hanya Fermata Auto yang muncul
+    dari keluarga Fermata. Minta bantuan pengguna jika UI tidak terjangkau agent.
+    Untuk DHU,
     aktifkan Start head unit server di HP dan jalankan Start-DHU.ps1.
     Uji gambar bergerak, play/pause, suara secara terpisah, TV dan input saat parkir.
 12. Jika classic gagal, simpan bukti ringkas dan pertimbangkan Shizuku sebagai

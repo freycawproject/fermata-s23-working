@@ -62,6 +62,16 @@ LANGKAH:
    Periksa launcher Android Auto setelah menyambung ulang bila diperlukan;
    checkbox ini membantu aplikasi sideload tampil tetapi bukan jaminan penerimaan
    semua komponen proyeksi. Jika Fermata belum muncul, lanjutkan diagnosis installer.
+   Buka Android Auto > Customize launcher/Sesuaikan peluncur. Dari tiga entri
+   Fermata yang muncul setelah pemasangan, centang hanya Fermata Auto (ikon play
+   biru); hapus centang dua entri Fermata lainnya. Cocokkan nama di UI saat ini:
+   misalnya Fermata Media Service, Fermata Mirror atau FS Fermata Mirror, tergantung
+   versi. Jangan mengubah checkbox aplikasi lain seperti Maps/Telepon. Jika hanya
+   satu entri Fermata tersedia, jangan mengarang entri yang tidak ada. Sembunyikan
+   lewat checkbox launcher, bukan uninstall atau menonaktifkan service/paket.
+   Sambungkan ulang Android Auto dan verifikasi hanya Fermata Auto yang terlihat
+   dari keluarga Fermata. Jika agent tidak dapat mengakses UI, minta pengguna
+   menyelesaikan langkah ini dan konfirmasi hasilnya.
    Uji DHU terlihat jika tersedia, melalui Start head unit server lalu Start-DHU.ps1.
    Buka Fermata Auto ikon play biru, uji video dengan adegan berubah dan play/pause.
    Uji audio terdengar, TV dan suara masing-masing; jangan mengasumsikan hasilnya.

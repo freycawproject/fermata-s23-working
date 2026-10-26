@@ -101,6 +101,16 @@ Sambungkan ulang Android Auto bila diperlukan dan periksa Fermata di launcher.
 Checkbox membantu aplikasi sideload tampil, tetapi bukan bukti bahwa semua
 komponen proyeksi diterima. Bila tetap tidak muncul, periksa metode pemasangannya.
 
+Buka Android Auto > Customize launcher/Sesuaikan peluncur pada HP. Setelah
+pemasangan, pengguna melaporkan tiga ikon Fermata. Dari entri keluarga Fermata,
+centang hanya Fermata Auto (ikon play biru), lalu hapus centang dua lainnya.
+Nama tambahan dapat berupa Fermata Media Service, Fermata Mirror atau FS Fermata
+Mirror, tergantung versi; cocokkan dengan layar dan jangan mengarang entri.
+Pilihan aplikasi lain seperti Maps dan Telepon tetap sesuai pengaturan pengguna.
+Ini hanya menyembunyikan ikon, bukan uninstall atau menonaktifkan service/paket.
+Sambungkan ulang Android Auto dan pastikan dari keluarga Fermata hanya Fermata Auto
+terlihat. Jika UI tidak dapat dijangkau agent, pengguna membantu dan mengonfirmasi.
+
 Untuk simulator, aktifkan Start head unit server di Android Auto pada HP. Agent
 menjalankan Start-DHU.ps1, membuka Fermata Auto ikon play biru, memeriksa video
 bergerak dan play/pause. Audio terdengar, TV, mikrofon dan pencarian suara diuji
@@ -147,3 +157,4 @@ Referensi: [repo Samsung](https://github.com/freycawproject/fermata-s23-working)
 [Google DHU](https://developer.android.com/training/cars/testing/dhu),
 [Developer mode dan Unknown sources](https://developer.android.com/training/cars/testing),
 serta [playlist IPTV-org](https://github.com/iptv-org/iptv).
+Pengaturan ikon: [panduan launcher Google](https://developers.google.com/cars/design/android-auto/product-experience/system-ui/app-launcher).

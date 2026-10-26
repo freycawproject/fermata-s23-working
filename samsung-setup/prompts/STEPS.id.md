@@ -53,7 +53,13 @@ Developer settings > centang Unknown sources/Sumber tidak dikenal dan pastikan O
 Jika sudah ON jangan dimatikan. Ini berbeda dari izin Install unknown apps Android.
 Jika agent tidak bisa mengakses checkbox, minta bantuan pengguna dan verifikasi hasil.
 Periksa launcher setelah menyambung ulang bila perlu; jangan menjamin checkbox saja
-cukup untuk penerimaan proyeksi. Uji DHU jika tersedia dan pisahkan hasil mobil
+cukup untuk penerimaan proyeksi. Buka Android Auto > Customize launcher/Sesuaikan
+peluncur. Dari tiga entri Fermata, centang hanya Fermata Auto (ikon play biru) dan
+uncheck dua entri Fermata lainnya sesuai nama yang benar di UI. Jangan mengubah
+pilihan aplikasi lain, uninstall atau menonaktifkan service. Jika jumlah entri
+berbeda, gunakan entri yang tersedia; jangan mengarangnya. Sambungkan ulang dan
+pastikan dari keluarga Fermata hanya Fermata Auto terlihat. Minta bantuan pengguna
+jika UI tidak terjangkau agent. Uji DHU jika tersedia dan pisahkan hasil mobil
 saat parkir. Verifikasi
 video bergerak, play/pause, audio, satu channel TV, keyboard saat P, dan suara.
 Jangan membuka pembatasan kendaraan. Bedakan laporan pengguna dan pengamatan agent.

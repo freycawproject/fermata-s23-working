@@ -8,6 +8,12 @@ di prompt lengkap, prompt per tahap, prompt resume dan panduan PDF. Langkah
 Unknown sources sebelumnya sudah ada di panduan instalasi, tetapi belum eksplisit
 di prompt pemasangan utama. Pengaturan AA ini tidak termasuk isi ZIP preferensi.
 
+Revisi panduan launcher: prompt lengkap/per tahap/resume dan PDF mengarahkan
+agent ke Android Auto > Customize launcher untuk mencentang hanya Fermata Auto
+dari tiga entri Fermata dan uncheck dua lainnya. Pilihan aplikasi lain tetap;
+service/paket tidak dinonaktifkan. Setelah reconnect agent memeriksa hasilnya.
+Perubahan ini berupa panduan, bukan pengaturan Android Auto yang tersimpan di ZIP.
+
 Pembaruan ini mengubah kit pemasangan/dokumentasi, bukan kode aplikasi Fermata.
 Profil S23 lama tetap menjadi default untuk kompatibilitas skrip terdahulu.
 Profil baru dipilih eksplisit dengan FERMATA_SETUP_PROFILE=s25-reported.

@@ -49,3 +49,6 @@ perlu diverifikasi. ZIP bersih belum diuji impor langsung pada HP.
 
 Preset tidak berisi izin Android, akses Shizuku, akun, kata sandi, atau pengaturan
 Android Auto; semua itu tidak dapat diberikan hanya dengan impor ZIP.
+Untuk ikon, agent/pengguna harus membuka Android Auto > Customize launcher dan
+mencentang hanya Fermata Auto dari tiga entri Fermata, lalu uncheck dua lainnya.
+Pilihan aplikasi lain tidak diubah. Sambungkan ulang untuk memeriksa hasilnya.

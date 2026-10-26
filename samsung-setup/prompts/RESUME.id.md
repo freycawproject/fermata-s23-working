@@ -9,7 +9,11 @@ suara id-ID serta URL TV. Pastikan Hide bars dan Fullscreen OFF di Interface
 dan Interface > Android Auto. Di Settings Android Auto, aktifkan Developer mode
 melalui bagian Versi bila perlu; menu tiga titik > Developer settings > Unknown
 sources harus dicentang ON. Verifikasi keadaan checkbox; jangan mematikan yang
-sudah ON. Penyalinan ZIP bukan impor. Uji DHU dan mobil terpisah
+sudah ON. Di Android Auto > Customize launcher, dari tiga entri Fermata centang
+hanya Fermata Auto dan uncheck dua lainnya yang muncul; jangan mengubah checkbox
+aplikasi lain, uninstall atau menonaktifkan service. Sambungkan ulang dan verifikasi
+hanya Fermata Auto terlihat dari keluarga Fermata. Penyalinan ZIP bukan impor.
+Uji DHU dan mobil terpisah
 saat parkir; jangan membuka pembatasan keyboard. Jangan root, uninstall, clear data,
 downgrade atau memublikasikan data pribadi. Laporkan bukti dan fitur belum diuji.
 ```
