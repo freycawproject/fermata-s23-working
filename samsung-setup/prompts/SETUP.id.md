@@ -43,13 +43,26 @@ LANGKAH:
    preferensi lama, simpan lokal. Import preferences menggunakan ZIP PUBLIK
    Download/fermata-samsung-public-v1.zip, bukan cadangan pribadi pemilik repo.
    Jangan ekstrak ZIP. Setelah aplikasi menutup, buka kembali. Penyalinan bukan impor.
-7. Verifikasi Voice control aktif, bahasa id-ID, tampilan dan TV indo. URL TV
+7. Verifikasi Voice control aktif, bahasa id-ID dan TV indo. Di Settings > Interface,
+   pastikan Hide bars OFF dan Fullscreen OFF; di Interface > Android Auto, pastikan
+   Hide bars OFF dan Fullscreen OFF juga. Impor ulang ZIP publik terbaru bila perlu.
+   URL TV
    dipertahankan di preset. Jangan menghapus playlist pengguna lain; jika sumber ID
    1 sudah dipakai, jelaskan potensi tertimpa dan simpan backup sebelum impor.
 8. Audit versi dan tiga field installer. Bandingkan pola S23 sebagai referensi,
    bukan bukti universal. Jika berfungsi, jangan lanjut Shizuku. Jika classic gagal,
    kumpulkan bukti terbatas lalu pertimbangkan Shizuku; root di luar lingkup.
-9. Uji DHU terlihat jika tersedia, melalui Start head unit server lalu Start-DHU.ps1.
+9. Buka pengaturan Android Auto di HP. Jika mode pengembang belum aktif, ketuk
+   bagian Version/Versi berulang kali (biasanya 10 kali) dan konfirmasi dialognya.
+   Buka menu tiga titik > Developer settings > centang Unknown sources/Sumber
+   tidak dikenal. Baca keadaan checkbox dan pastikan ON, jangan sekadar membukanya.
+   Jika sudah ON jangan mengetuk hingga OFF. Jika agent tidak bisa mengaksesnya,
+   minta pengguna melakukan langkah ini lalu konfirmasi hasil. Izin Install unknown
+   apps milik KingInstaller berbeda dari Unknown sources di Android Auto.
+   Periksa launcher Android Auto setelah menyambung ulang bila diperlukan;
+   checkbox ini membantu aplikasi sideload tampil tetapi bukan jaminan penerimaan
+   semua komponen proyeksi. Jika Fermata belum muncul, lanjutkan diagnosis installer.
+   Uji DHU terlihat jika tersedia, melalui Start head unit server lalu Start-DHU.ps1.
    Buka Fermata Auto ikon play biru, uji video dengan adegan berubah dan play/pause.
    Uji audio terdengar, TV dan suara masing-masing; jangan mengasumsikan hasilnya.
 10. Mobil diuji terpisah saat parkir. Keyboard di posisi P dan pembatasan Android

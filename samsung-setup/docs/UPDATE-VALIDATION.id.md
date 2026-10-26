@@ -1,5 +1,13 @@
 # Validasi pembaruan Samsung — 26 Oktober 2026
 
+Revisi preset 2: HIDE_BARS, FULLSCREEN, HIDE_BARS_AA dan FULLSCREEN_AA diubah
+menjadi false sesuai permintaan pemilik. URL TV, kunci suara dan tema dipertahankan.
+ZIP/checksum serta kedua PDF dibangun ulang. Langkah aktivasi Developer mode
+Android Auto dan verifikasi checkbox Unknown sources ON kini tertulis eksplisit
+di prompt lengkap, prompt per tahap, prompt resume dan panduan PDF. Langkah
+Unknown sources sebelumnya sudah ada di panduan instalasi, tetapi belum eksplisit
+di prompt pemasangan utama. Pengaturan AA ini tidak termasuk isi ZIP preferensi.
+
 Pembaruan ini mengubah kit pemasangan/dokumentasi, bukan kode aplikasi Fermata.
 Profil S23 lama tetap menjadi default untuk kompatibilitas skrip terdahulu.
 Profil baru dipilih eksplisit dengan FERMATA_SETUP_PROFILE=s25-reported.

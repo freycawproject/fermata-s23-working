@@ -78,6 +78,9 @@ Jangan mengekstrak ZIP. Setelah konfirmasi impor, Fermata menutup; buka kembali.
 Agent harus membedakan penyalinan ZIP dari keberhasilan impor melalui aplikasi.
 
 Periksa Voice control aktif, bahasa Indonesia id-ID, tampilan dan sumber TV indo.
+Pada Settings > Interface, pastikan Hide bars OFF dan Fullscreen OFF. Pada
+Interface > Android Auto, pastikan Hide bars OFF dan Fullscreen OFF juga.
+Untuk menerapkan revisi ini pada HP yang sudah diatur, impor ulang ZIP publik terbaru.
 Playlist TV tetap menggunakan https://iptv-org.github.io/iptv/countries/id.m3u.
 EPG XMLTV tidak disertakan karena tidak ada URL EPG pada file asal.
 
@@ -88,9 +91,15 @@ ZIP bersih belum diuji impor langsung pada HP; hasilnya harus diverifikasi agent
 
 ## 7. Uji Android Auto dan DHU
 
-Aktifkan Developer mode Android Auto bila dibutuhkan melalui bagian versi di
-pengaturan Android Auto, lalu Developer settings > Unknown sources. Ini bukan
-bukti bahwa semua komponen aplikasi diterima oleh head unit.
+Buka pengaturan Android Auto di HP. Jika mode pengembang belum aktif, ketuk bagian
+Version/Versi berulang kali, biasanya 10 kali, lalu konfirmasi pengaktifannya.
+Buka menu tiga titik > Developer settings > centang Unknown sources/Sumber tidak
+dikenal. Agent harus memastikan checkbox ON; jika sudah ON jangan diketuk lagi.
+Jika dialog tidak dapat diakses agent, pengguna menyelesaikannya di HP lalu
+memberi konfirmasi. Ini berbeda dari izin Install unknown apps milik KingInstaller.
+Sambungkan ulang Android Auto bila diperlukan dan periksa Fermata di launcher.
+Checkbox membantu aplikasi sideload tampil, tetapi bukan bukti bahwa semua
+komponen proyeksi diterima. Bila tetap tidak muncul, periksa metode pemasangannya.
 
 Untuk simulator, aktifkan Start head unit server di Android Auto pada HP. Agent
 menjalankan Start-DHU.ps1, membuka Fermata Auto ikon play biru, memeriksa video
@@ -139,5 +148,7 @@ Fermata: [rilis resmi 2.0.2](https://github.com/AndreyPavlenko/Fermata/releases/
 KingInstaller: [rilis resmi 2.4](https://github.com/fcaronte/KingInstaller/releases/tag/2.4)
 
 DHU: [panduan Google](https://developer.android.com/training/cars/testing/dhu)
+
+Developer mode dan Unknown sources: [panduan Android Developers](https://developer.android.com/training/cars/testing)
 
 Playlist TV: [proyek IPTV-org](https://github.com/iptv-org/iptv)

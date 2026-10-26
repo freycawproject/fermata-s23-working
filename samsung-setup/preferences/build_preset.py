@@ -32,7 +32,8 @@ def build():
             archive.writestr(info, source.read_bytes().replace(b'\r\n', b'\n'))
     digest = hashlib.sha256(target.read_bytes()).hexdigest()
     manifest = {
-        'fileName': target.name, 'schemaVersion': 1, 'size': target.stat().st_size,
+        'fileName': target.name, 'schemaVersion': 1, 'revision': 2,
+        'updatedDate': '2026-10-26', 'size': target.stat().st_size,
         'sha256': digest, 'entries': list(FILES),
         'allowedKeys': {name: sorted(keys) for name, keys in FILES.items()},
         'deviceImportTest': 'Not yet tested on a phone; validate after native import',

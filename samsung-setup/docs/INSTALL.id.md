@@ -23,7 +23,8 @@ Panduan utama: [PDF](INSTALASI-AGENT.id.pdf), [sumber panduan](INSTALASI-AGENT.i
 8. Buka Fermata di HP dan selesaikan izin fitur yang relevan. Untuk instalasi lama,
    ekspor backup preferensi. Pilih Settings > Import preferences >
    Download/fermata-samsung-public-v1.zip. Jangan ekstrak; impor menutup aplikasi.
-9. Buka ulang. Periksa suara id-ID, tampilan dan playlist TV indo. Jangan menyatakan
+9. Buka ulang. Periksa suara id-ID dan playlist TV indo. Pastikan Hide bars OFF
+   dan Fullscreen OFF pada Interface maupun Interface > Android Auto. Jangan menyatakan
    impor sukses hanya karena adb push berhasil. Jika UI tidak dapat diakses,
    minta pengguna melakukan langkah layar yang spesifik dan tunggu hasilnya.
 10. Audit ulang installer, service dan runtime. Pola S23 yang diamati:
@@ -31,7 +32,13 @@ Panduan utama: [PDF](INSTALASI-AGENT.id.pdf), [sumber panduan](INSTALASI-AGENT.i
     initiatingPackageName=com.google.android.packageinstaller,
     originatingPackageName=com.example.kinginstaller.
     Ini referensi S23, bukan syarat universal terbukti untuk S25/semua Samsung.
-11. Aktifkan Developer mode AA > Unknown sources bila diperlukan. Untuk DHU,
+11. Di Settings Android Auto pada HP, aktifkan Developer mode melalui bagian Versi
+    bila belum aktif (ketuk berulang kali, biasanya 10 kali, lalu konfirmasi).
+    Buka menu tiga titik > Developer settings > centang Unknown sources dan
+    verifikasi ON. Jangan mengetuk checkbox yang sudah ON. Ini bukan izin Install
+    unknown apps Android. Jika alat tidak bisa mengaksesnya, minta pengguna
+    menyelesaikan dialog lalu konfirmasi. Periksa launcher setelah reconnect bila
+    perlu; checkbox bukan jaminan penerimaan komponen proyeksi. Untuk DHU,
     aktifkan Start head unit server di HP dan jalankan Start-DHU.ps1.
     Uji gambar bergerak, play/pause, suara secara terpisah, TV dan input saat parkir.
 12. Jika classic gagal, simpan bukti ringkas dan pertimbangkan Shizuku sebagai

@@ -8,7 +8,10 @@ dari XML publik di folder ini, tanpa membaca cadangan pribadi.
 ## Dipertahankan
 
 - `fermata.xml`: 9 kunci tampilan dan suara. Voice control aktif, `id-ID`, aktivasi
-  melalui tombol mengambang, tema dan pengaturan fullscreen dari cadangan.
+  melalui tombol mengambang dan tema dari cadangan. Sesuai revisi pemilik,
+  Interface > Hide bars dan Fullscreen **OFF**; Interface > Android Auto >
+  Hide bars dan Fullscreen juga **OFF**. Empat kunci yang diubah adalah
+  HIDE_BARS, FULLSCREEN, HIDE_BARS_AA dan FULLSCREEN_AA, semuanya false.
 - `tvm3u.xml`: nama sumber `indo`, URL playlist TV asli, tipe video, interval refresh,
   dan counter ID. URL publiknya `https://iptv-org.github.io/iptv/countries/id.m3u`.
 - `medialib.xml`: tiga kunci penghubung sumber TV ke playlist. Tanpa ini URL saja
@@ -34,7 +37,8 @@ Pilihan decoder media juga tidak dipaksakan lintas model.
 2. Agent menyalin ZIP publik ke Download melalui Prepare-Phone.ps1.
 3. Di Fermata pada HP pilih Settings > Import preferences > ZIP publik.
 4. Konfirmasikan hasil impor; aplikasi akan menutup. Buka ulang, bukan instal ulang.
-5. Periksa Voice control, bahasa Indonesia, tampilan dan sumber TV `indo`.
+5. Periksa Voice control, bahasa Indonesia, empat opsi tampilan OFF di atas,
+   dan sumber TV `indo`. Impor ulang ZIP terbaru untuk menerapkan revisi ini.
 6. Uji mikrofon dengan izin Android yang relevan dan coba satu siaran TV saat parkir.
 
 Implementasi import pada source 2.0.1 menggabungkan nilai kunci dari berkas yang

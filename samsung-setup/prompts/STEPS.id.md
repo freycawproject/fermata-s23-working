@@ -39,13 +39,22 @@ Periksa apakah sumber TV ID 1 sudah digunakan sebelum impor karena dapat tertimp
 Impor Download/fermata-samsung-public-v1.zip dari Settings > Import preferences
 Fermata pada HP. Jangan ekstrak ZIP dan jangan mengklaim adb push sebagai impor.
 Minta pengguna menangani picker bila alat tidak dapat mengaksesnya. Setelah Fermata
-menutup, buka lagi. Verifikasi suara id-ID, tampilan dan playlist TV indo.
+menutup, buka lagi. Verifikasi suara id-ID dan playlist TV indo. Di Settings >
+Interface, Hide bars dan Fullscreen harus OFF; di Interface > Android Auto,
+Hide bars dan Fullscreen juga harus OFF. Gunakan ZIP publik terbaru.
 ```
 
 ## 5. Uji dan laporan
 
 ```text
-Uji Fermata di DHU jika tersedia dan pisahkan hasil mobil saat parkir. Verifikasi
+Buka Settings Android Auto di HP. Aktifkan mode pengembang melalui bagian Versi
+(ketuk berulang kali, biasanya 10 kali, lalu konfirmasi). Buka menu tiga titik >
+Developer settings > centang Unknown sources/Sumber tidak dikenal dan pastikan ON.
+Jika sudah ON jangan dimatikan. Ini berbeda dari izin Install unknown apps Android.
+Jika agent tidak bisa mengakses checkbox, minta bantuan pengguna dan verifikasi hasil.
+Periksa launcher setelah menyambung ulang bila perlu; jangan menjamin checkbox saja
+cukup untuk penerimaan proyeksi. Uji DHU jika tersedia dan pisahkan hasil mobil
+saat parkir. Verifikasi
 video bergerak, play/pause, audio, satu channel TV, keyboard saat P, dan suara.
 Jangan membuka pembatasan kendaraan. Bedakan laporan pengguna dan pengamatan agent.
 Fermata 2.0.2 menonaktifkan FS Mirror menurut upstream. Tandai fitur yang tidak

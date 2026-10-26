@@ -43,6 +43,7 @@ Jangan ekstrak ZIP. Setelah impor aplikasi menutup; buka kembali dan verifikasi.
 Penyalinan ADB saja tidak melakukan impor.
 
 Preset mempertahankan suara Indonesia, tampilan, dan **URL playlist TV asli**.
+Hide bars dan Fullscreen **OFF** pada Interface serta Interface > Android Auto.
 Riwayat browser/tontonan, favorit, cache dan metadata perangkat dibuang.
 Lihat [rincian preset](preferences/README.id.md). Preset bersih belum diuji impor
 langsung ke HP; agent harus menguji sebelum menyebut setup selesai.
