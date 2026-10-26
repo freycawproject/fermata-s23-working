@@ -1,49 +1,51 @@
-# Instalasi melalui KingInstaller
+# Referensi teknis untuk agent
 
-1. Aktifkan Developer options dan Wireless debugging pada HP. Pair laptop bila
-   diperlukan; gunakan port koneksi yang tampil saat ini. Skrip selalu menargetkan
-   serial eksplisit atau satu-satunya perangkat terotorisasi, profil utama user 0.
-2. Jalankan `Get-Artifacts.ps1`, `Install-DesktopTools.ps1`, lalu `Prepare-Phone.ps1`.
-   Versi berbeda yang sudah terpasang tidak dihapus otomatis. Jika versinya lebih
-   baru dari 2.0.1, berhenti dan rencanakan backup; jangan uninstall atau downgrade
-   tanpa persetujuan pengguna.
-3. Buka KingInstaller 2.3. Izinkan akses file dan izin memasang aplikasi dari
-   sumber KingInstaller saat Android meminta. Auto Blocker Samsung dan pembatasan
-   alat agen di laptop adalah dua hal berbeda.
-4. Pilih `Download/fermata-auto-2.0.1-arm64.apk`.
-5. Biarkan pilihan **Oppo/Realme/OnePlus, Root, dan Shizuku OFF**. Tap
-   **Install as king**.
-6. Bila muncul pemilih aplikasi, pilih **Package installer**, kemudian **Just
-   once**. Jangan memilih KingInstaller lagi atau Install with Options.
-7. Konfirmasikan Install atau **Update**. Kata Update di sini juga digunakan
-   Android untuk memasang ulang APK versi yang sama; bukan berarti mengunduh versi
-   Fermata terbaru. Tunggu sampai selesai.
-8. Jalankan `Verify-Phone.ps1 -Launch`. Bandingkan tiga field installer dengan
-   baseline di README. `installer=com.android.vending` saja belum cukup.
-9. Buka Fermata di HP dan selesaikan izin media yang diperlukan. Izin overlay
-   dipakai fitur tertentu; aktifkan bila diminta untuk fitur yang diuji. Jangan
-   mengaktifkan semua izin yang tidak relevan secara membabi buta.
-10. Aktifkan Developer mode Android Auto bila belum aktif. Unknown sources berguna
-    untuk Media Service, tetapi bukan bukti bahwa komponen proyeksi diizinkan.
-    Aktifkan **Start head unit server**, jalankan DHU, lalu pilih **Fermata Auto**.
+Panduan utama: [PDF](INSTALASI-AGENT.id.pdf), [sumber panduan](INSTALASI-AGENT.id.md),
+[prompt lengkap](../prompts/SETUP.id.md), [prompt tahap](../prompts/STEPS.id.md).
 
-## Samsung DeX / multi-display
+1. Baca README dan kompatibilitas. Audit perangkat yang benar: model, Android,
+   One UI, ABI, versi AA, Fermata dan KingInstaller. Jangan mematok serial/IP lama.
+2. Pilih `FERMATA_SETUP_PROFILE`: `s23-legacy` atau `s25-reported`. Pilihan ini
+   berlaku pada semua skrip yang dijalankan dalam proses PowerShell tersebut.
+3. Jalankan Get-Artifacts.ps1, lalu Install-DesktopTools.ps1 bila alat belum ada.
+   Gunakan -IncludeOptional hanya bila perlu. Periksa ukuran dan checksum.
+4. Jalankan Verify-Phone.ps1. Jika instalasi berfungsi, jangan memasang ulang
+   hanya demi menyamakan metadata. Jangan downgrade versi yang lebih baru.
+5. Bila pemasangan diperlukan, jalankan Prepare-Phone.ps1 -Serial '<serial>'.
+   Skrip memasang KingInstaller, menyalin APK Fermata dan preset, lalu membuka
+   KingInstaller; skrip tidak menginstal Fermata lewat shell.
+6. Gunakan classic terlebih dahulu, Root/Shizuku/Oppo OFF. Pilih APK sesuai profil.
+   Jika ada pemilih installer, gunakan Package installer > Just once; UI dapat
+   berbeda antar Android. Jangan menganggap chooser selalu muncul di Android 15+.
+7. Konfirmasikan Install atau Update. Update bisa berarti pemasangan ulang versi
+   sama atau peningkatan ke versi yang dipilih; selalu periksa nama/versi APK.
+   Jangan uninstall, hapus data atau downgrade otomatis.
+8. Buka Fermata di HP dan selesaikan izin fitur yang relevan. Untuk instalasi lama,
+   ekspor backup preferensi. Pilih Settings > Import preferences >
+   Download/fermata-samsung-public-v1.zip. Jangan ekstrak; impor menutup aplikasi.
+9. Buka ulang. Periksa suara id-ID, tampilan dan playlist TV indo. Jangan menyatakan
+   impor sukses hanya karena adb push berhasil. Jika UI tidak dapat diakses,
+   minta pengguna melakukan langkah layar yang spesifik dan tunggu hasilnya.
+10. Audit ulang installer, service dan runtime. Pola S23 yang diamati:
+    installerPackageName=com.android.vending,
+    initiatingPackageName=com.google.android.packageinstaller,
+    originatingPackageName=com.example.kinginstaller.
+    Ini referensi S23, bukan syarat universal terbukti untuk S25/semua Samsung.
+11. Aktifkan Developer mode AA > Unknown sources bila diperlukan. Untuk DHU,
+    aktifkan Start head unit server di HP dan jalankan Start-DHU.ps1.
+    Uji gambar bergerak, play/pause, suara secara terpisah, TV dan input saat parkir.
+12. Jika classic gagal, simpan bukti ringkas dan pertimbangkan Shizuku sebagai
+    cadangan. Jangan root atau menghapus aplikasi tanpa otorisasi khusus.
 
-Saat memakai otomasi ADB, aplikasi mungkin ada di display DeX, bukan display 0.
-Periksa display ID dan activity yang benar sebelum setiap ketukan. ID display
-berubah; jangan mematok angka dari sesi sebelumnya. XML UI yang gagal atau
-`null root node` tidak boleh digantikan XML lama. Buat nama dump baru setiap kali,
-pastikan nama paket dan bounds terlihat, lalu cocokkan screenshot display terkait
-bila perlu. Hindari mengetuk `[0,0][0,0]` atau mengira layar HP sama dengan DeX.
+## DeX dan multi-display
 
-## Bila audit belum cocok
+Periksa display, paket activity, bounds dan screenshot saat ini sebelum mengetuk.
+Jangan menggunakan XML lama setelah dump gagal, ID display lama atau bounds nol.
+Jika alat menolak perintah sebelum sampai ke HP, jangan menyebutnya Auto Blocker.
 
-- Coba metode Shizuku hanya setelah mengamati kegagalan metode biasa.
-- Jangan langsung menghapus data Android Auto atau uninstall Fermata. Ekspor
-  preferensi terlebih dahulu bila tindakan itu memang diperlukan dan disetujui.
-- Tidak ada jaminan satu installer bekerja pada semua patch Samsung.
-- Bila service proyeksi tidak muncul, bedakan masalah validasi dari decoder/video
-  hitam. Kumpulkan bukti dengan filter paket, bukan semua isi HP.
-- Jika simulator terputus, periksa crash Android Auto sendiri. Pada sesi awal DHU
-  2.0 terjadi crash `ViewTreeLifecycleOwner not found`; sesi berikutnya dengan DHU
-  2.1 berhasil. Urutan itu tidak membuktikan penyebab tunggal.
+## Batas pengujian
+
+DHU tidak membuktikan penerimaan head unit mobil produksi. FS Mirror dinonaktifkan
+di 2.0.2 menurut upstream; jangan menyamakan video Fermata dengan mirroring HP.
+Pembatasan keyboard di luar posisi P bukan masalah yang diperbaiki preset.
+Uji mobil ketika parkir. Simpan bukti lokal; jangan unggah screenshot pribadi.

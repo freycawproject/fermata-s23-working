@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<map>
+  <boolean name="1#VIDEO" value="true" />
+  <string name="1#NAME">indo</string>
+  <int name="1#MAX_AGE" value="86400" />
+  <int name="ID_COUNTER" value="1" />
+  <string name="1#URL">https://iptv-org.github.io/iptv/countries/id.m3u</string>
+</map>

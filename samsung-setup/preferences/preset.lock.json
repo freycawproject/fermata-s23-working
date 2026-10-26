@@ -1,0 +1,37 @@
+{
+  "fileName": "fermata-samsung-public-v1.zip",
+  "schemaVersion": 1,
+  "size": 840,
+  "sha256": "c217ea137c43c606c6389ff70a9666a810e94ba8a2473506cf18125af7c78d46",
+  "entries": [
+    "fermata.xml",
+    "tvm3u.xml",
+    "medialib.xml"
+  ],
+  "allowedKeys": {
+    "fermata.xml": [
+      "FULLSCREEN",
+      "FULLSCREEN_AA",
+      "HIDE_BARS",
+      "HIDE_BARS_AA",
+      "LANDSCAPE_VIDEO",
+      "THEME_MAIN",
+      "VOICE_CONTROL_LANG",
+      "VOICE_CONTROl_ENABLED",
+      "VOICE_CONTROl_FB"
+    ],
+    "tvm3u.xml": [
+      "1#MAX_AGE",
+      "1#NAME",
+      "1#URL",
+      "1#VIDEO",
+      "ID_COUNTER"
+    ],
+    "medialib.xml": [
+      "TV#M3UID#1",
+      "TV#SOURCE_COUNTER",
+      "TV#SOURCE_IDS"
+    ]
+  },
+  "deviceImportTest": "Not yet tested on a phone; validate after native import"
+}

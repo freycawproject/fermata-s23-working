@@ -1,131 +1,77 @@
-# Fermata Samsung S23: paket konfigurasi teruji
+# Fermata Samsung: pemasangan melalui agent
 
-Paket ini merekam hasil pemasangan dan pengujian **24 Oktober 2026**. Source
-Fermata berasal dari tag **2.0.1**, commit
-`7be970dbc1d68f674886af3e9a4e4ad838e56bc4`; kode aplikasi upstream tidak diubah.
-APK yang digunakan adalah **rilis resmi**, bukan APK hasil kompilasi fork ini.
+Mulai dengan **[prompt lengkap](prompts/SETUP.id.md)** pada agent yang memiliki akses
+terminal Windows, filesystem, dan ADB. Untuk sesi bertahap gunakan
+**[prompt per tahap](prompts/STEPS.id.md)**. Pengguna tetap menyelesaikan dialog izin
+Android atau tindakan di layar bila otomasi tidak dapat mengaksesnya.
 
-## Konfigurasi yang berhasil
+Panduan yang dapat dibagikan: **[PDF instalasi melalui agent](docs/INSTALASI-AGENT.id.pdf)**
+dan [sumber panduan](docs/INSTALASI-AGENT.id.md).
 
-| Komponen | Versi / peran |
-|---|---|
-| HP | Samsung Galaxy S23 SM-S911B, arm64 |
-| Android / One UI | Android 16 / One UI 8.5 |
-| Android Auto | 17.8.663874-release; tidak diturunkan versinya |
-| Fermata Auto | **2.0.1 arm64** |
-| KingInstaller | **2.3**, metode biasa, tanpa pilihan Root/Shizuku/Oppo |
-| Shizuku | 13.6.0.r1086.2650830c, disertakan sebagai **cadangan opsional** |
-| ADB Platform Tools | 37.0.1 untuk Windows |
-| DHU | **2.1 preview Windows**, konfigurasi `default_720p.ini` |
+## Pilih profil sebelum menjalankan skrip
 
-Hasil yang benar-benar diamati:
+| Profil | APK | Bukti |
+|---|---|---|
+| `s23-legacy` | Fermata 2.0.1 arm64 + KingInstaller 2.3 | Pengujian agent di S23, Android 16 / One UI 8.5, AA 17.8; video di DHU |
+| `s25-reported` | Fermata 2.0.2 arm64 + KingInstaller 2.4 | Pengguna melaporkan berhasil di S25 Ultra, Android 17, AA 17.9; build lengkap dan One UI belum dicatat |
+| Samsung lainnya | Pilih berdasarkan versi terpasang dan kebutuhan fitur | Belum diuji; tidak ada jaminan semua model/patch kompatibel |
 
-- Fermata dipasang melalui KingInstaller > Google Package Installer > Update.
-  Pemasangan menimpa versi yang sama; tidak ada uninstall atau hapus data.
-- `installerPackageName=com.android.vending`.
-- `initiatingPackageName=com.google.android.packageinstaller`.
-- `originatingPackageName=com.example.kinginstaller`.
-- Fermata Auto tampil di launcher DHU, UI khusus terbuka, dan video YouTube
-  menampilkan adegan bergerak. Status media `PLAYING`, lalu `PAUSED` saat diuji.
-- Shizuku, root, dan InstallWithOptions **tidak dibutuhkan** pada jalur berhasil ini.
-
-**Batas pengujian:** head unit mobil fisik belum diverifikasi; DHU adalah head unit
-pengembang dengan perilaku validasi berbeda. FS Mirror memiliki permintaan izin
-terpisah dan belum diverifikasi. Audio terdengar tidak diukur secara independen;
-yang diamati ialah gambar dan status sesi media. Model/patch lain bisa berbeda.
-
-## Mulai dari Windows
-
-Buka PowerShell di folder `samsung-setup`:
-
-Jika Windows menolak eksekusi skrip lokal, buka proses PowerShell khusus kit ini
-dengan `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned`, lalu jalankan
-perintah di bawah dari proses itu. Opsi ini hanya berlaku pada proses tersebut;
-kit tidak mengubah kebijakan mesin atau registry. Jangan gunakan cara ini untuk
-mengabaikan Group Policy organisasi. Jika arsip dari internet ditandai sebagai
-file unduhan, tinjau source terlebih dahulu dan ikuti kebijakan Windows setempat.
+Profil dipilih secara eksplisit dalam PowerShell dari folder `samsung-setup`:
 
 ```powershell
-# Lewati unduhan jika memakai ZIP offline; tetap periksa checksum.
-.\scripts\Get-Artifacts.ps1 -IncludeOptional
+$env:FERMATA_SETUP_PROFILE = 's25-reported'
+.\scripts\Get-Artifacts.ps1
 .\scripts\Install-DesktopTools.ps1
-
-# Hubungkan Wireless debugging terlebih dahulu. Gunakan port koneksi,
-# bukan port pairing. Port dan serial tidak dipatok ke HP pemilik repo.
-.\artifacts\platform-tools\adb.exe devices -l
-
-# Menyiapkan KingInstaller dan menyalin Fermata; tidak memasang Fermata via shell.
-.\scripts\Prepare-Phone.ps1
+.\scripts\Prepare-Phone.ps1 -Serial '<serial aktif>'
 ```
 
-Untuk memverifikasi seluruh isi ZIP offline termasuk source KingInstaller dan
-Shizuku, jalankan `Get-Artifacts.ps1 -IncludeOptional -IncludeSources -VerifyOnly`.
-Untuk mengambil source tersebut dari repo Git saja, gunakan `-IncludeSources`
-tanpa `-VerifyOnly`. Source Fermata sudah berada di repo ini.
+Untuk profil lama pilih `s23-legacy`. Tanpa variabel, skrip tetap memakai profil
+S23 lama agar perilaku kit terdahulu tidak berubah. Semua skrip dalam proses itu
+memakai profil yang sama. Skrip Prepare menyalin APK dan preset, memasang
+KingInstaller, lalu membukanya; Fermata dipasang lewat UI KingInstaller.
 
-Lanjutkan **[panduan instalasi](docs/INSTALL.id.md)** di layar HP. Bila ADB
-menampilkan lebih dari satu koneksi, berikan `-Serial '<serial dari adb devices>'`
-pada skrip. `-AdbPath` dapat menunjuk ADB dari SDK yang sudah ada.
+Jika PowerShell memblokir skrip lokal, gunakan proses khusus
+`powershell.exe -NoProfile -ExecutionPolicy RemoteSigned`; tidak mengubah kebijakan
+mesin. Ikuti Group Policy organisasi. Tidak perlu mengubah registry.
 
-```powershell
-# Audit instalasi dan jalankan aplikasi tanpa menghapus log/data.
-.\scripts\Verify-Phone.ps1 -Launch -OutFile .\reports\verification.json
+## Setelah pemasangan: impor preset publik
 
-# Di HP: Android Auto > menu > Start head unit server.
-.\scripts\Start-DHU.ps1
-```
+Agent menyalin **[fermata-samsung-public-v1.zip](preferences/fermata-samsung-public-v1.zip)**
+ke Download. Buka Fermata di HP, selesaikan izin, ekspor backup bila sudah ada
+pengaturan, lalu pilih Settings > Import preferences dan ZIP tersebut.
+Jangan ekstrak ZIP. Setelah impor aplikasi menutup; buka kembali dan verifikasi.
+Penyalinan ADB saja tidak melakukan impor.
 
-Di DHU, buka launcher, gulir ke **Fermata Auto dengan ikon play biru**, buka
-YouTube, dan putar video. Pastikan adegan berganti; gambar thumbnail, PID hidup,
-atau service terdaftar saja tidak cukup. Uji koneksi mobil secara terpisah saat
-parkir. Tutup DHU sebelum menguji koneksi mobil jika keduanya berebut sesi.
+Preset mempertahankan suara Indonesia, tampilan, dan **URL playlist TV asli**.
+Riwayat browser/tontonan, favorit, cache dan metadata perangkat dibuang.
+Lihat [rincian preset](preferences/README.id.md). Preset bersih belum diuji impor
+langsung ke HP; agent harus menguji sebelum menyebut setup selesai.
 
-## Jalur cadangan Shizuku
+## Batas dan fitur
 
-Gunakan hanya jika metode biasa gagal pada perangkat lain:
+- Fermata 2.0.2 menonaktifkan FS Mirror menurut catatan rilis resmi. Keberhasilan
+  Fermata Auto/YouTube/TV tidak membuktikan pencerminan seluruh layar HP.
+- Source aplikasi di branch ini tetap tag 2.0.1; profil baru menggunakan APK resmi
+  2.0.2 terpisah. Kode aplikasi upstream tidak diubah oleh kit.
+- Shizuku adalah cadangan, bukan syarat pemasangan normal. Root tidak termasuk.
+- Keyboard yang muncul saat gigi P mengikuti status pembatasan Android Auto.
+  Preset tidak membuka pembatasan saat kendaraan bergerak.
+- DHU adalah pengujian pengembang; penerimaan head unit mobil diuji terpisah saat
+  parkir. Suara/mikrofon, tiap channel TV, dan FS Mirror membutuhkan bukti sendiri.
+- Checksum membuktikan kesamaan berkas, bukan jaminan bebas malware.
 
-```powershell
-.\scripts\Get-Artifacts.ps1 -IncludeOptional
-.\scripts\Prepare-Phone.ps1 -IncludeShizuku
-.\scripts\Start-Shizuku.ps1
-```
+Lihat [instalasi teknis](docs/INSTALL.id.md), [kompatibilitas](docs/COMPATIBILITY.id.md),
+[bukti S23 lama](docs/VERIFIED.id.md), dan [validasi pembaruan](docs/UPDATE-VALIDATION.id.md).
 
-Izinkan KingInstaller di Shizuku, kemudian coba switch Shizuku di KingInstaller.
-Audit kembali hasilnya. Shizuku yang dijalankan lewat ADB memakai identitas shell;
-itu bukan root dan tidak menjamin metadata installer yang diinginkan.
+## Unduhan dan source
 
-## Isi repo dan paket offline
+`Get-Artifacts.ps1` memeriksa ukuran dan SHA256 sesuai lock profil. Tambahkan
+`-IncludeOptional` untuk Shizuku, `-IncludeSources` untuk arsip source, atau
+`-VerifyOnly` untuk memeriksa berkas lokal tanpa unduhan.
+APK/arsip Google tidak ditambahkan ke Git. Unduh dari pengembang melalui skrip;
+ketentuan dan lisensi masing-masing tetap berlaku. Release lama tetap tersedia
+sebagai rekaman konfigurasi lama dan tidak otomatis berisi profil baru.
 
-- `versions.lock.json`: URL versi pasti, ukuran, dan SHA256; tidak memakai endpoint
-  `latest`. SHA256 Shizuku berasal dari file resmi yang diunduh saat sesi awal;
-  GitHub tidak menyediakan digest untuk asset itu.
-- `scripts/`: unduh/verifikasi, siapkan HP, audit, jalankan Shizuku dan DHU.
-- `prompts/SETUP.id.md`: prompt lengkap untuk mengulang setup melalui agen AI.
-- `prompts/RESUME.id.md`: prompt singkat untuk melanjutkan perangkat yang sudah siap.
-- `docs/VERIFIED.id.md`: laporan yang disanitasi, tanpa email, serial, IP, screenshot
-  HP, token, atau logcat penuh.
-- `licenses/`: lisensi upstream dan tautan sumber. Hak masing-masing komponen
-  tetap milik pemiliknya.
-- `artifacts/`: APK dan ZIP alat; tersedia dalam ZIP lokal atau diunduh oleh skrip,
-  tetapi diabaikan Git agar riwayat repo tidak berisi binary besar.
-
-InstallWithOptions tidak disertakan: percobaan sebelumnya masih menghasilkan
-initiator `com.android.shell`. Fermata 2.0.2 juga tidak disertakan agar baseline
-tidak berubah; penghapusan FS Mirror pada versi itu memang disengaja upstream.
-
-## Fork dan build
-
-Branch setup: `samsung-s23-working`. Remote `upstream` menunjuk source asli.
-Lihat **[publikasi fork](docs/PUBLISH.id.md)**. Paket lokal menyertakan Git bundle
-agar riwayat dapat dipulihkan tanpa GitHub. Membuat clone lokal belum membuat fork
-di akun GitHub.
-
-Petunjuk build upstream tetap ada di [README utama](../README.md). Build ulang
-dapat memakai identitas/signature lain dan **tidak dianggap setara** dengan APK
-rilis resmi yang diuji. Jangan mengubah package/signing atau mengganti APK tanpa
-menjalankan ulang audit dan pengujian.
-
-Referensi: [Fermata 2.0.1](https://github.com/AndreyPavlenko/Fermata/releases/tag/2.0.1),
-[KingInstaller 2.3](https://github.com/fcaronte/KingInstaller/releases/tag/2.3),
-[Shizuku 13.6.0](https://github.com/RikkaApps/Shizuku/releases/tag/v13.6.0),
-[DHU Google](https://developer.android.com/training/cars/testing/dhu).
+Sumber resmi: [Fermata 2.0.2](https://github.com/AndreyPavlenko/Fermata/releases/tag/2.0.2),
+[KingInstaller 2.4](https://github.com/fcaronte/KingInstaller/releases/tag/2.4),
+[Google DHU](https://developer.android.com/training/cars/testing/dhu).

@@ -1,12 +1,11 @@
 ```text
-Lanjutkan setup Fermata dari samsung-setup pada repo ini. Baca README.id.md,
-versions.lock.json, dan docs/VERIFIED.id.md terlebih dahulu. Pertahankan versi
-teruji: Fermata 2.0.1 arm64, KingInstaller 2.3 classic, DHU 2.1 preview. Shizuku
-opsional. Temukan koneksi Wireless ADB sekarang dan audit dengan Verify-Phone.ps1.
-Jangan reinstall jika tiga field installer sudah cocok. Bila perlu, gunakan
-KingInstaller > Google Package Installer > Update versi sama, tanpa uninstall.
-Jalankan DHU terlihat di laptop, buka Fermata Auto ikon play biru, dan uji video
-serta play/pause. Bedakan keberhasilan DHU dari penerimaan head unit mobil.
-Jangan downgrade AA, root, hapus data, mengganti signing, atau memublikasikan log
-pribadi. Kerjakan langkah rutin secara mandiri dan laporkan bukti serta batas tes.
+Lanjutkan setup Fermata menggunakan samsung-setup. Baca README.id.md, profil lock
+yang dipilih, preferences/README.id.md dan docs/COMPATIBILITY.id.md. Audit koneksi
+HP saat ini dan versi terpasang. Set FERMATA_SETUP_PROFILE dalam proses yang dipakai
+semua skrip: s23-legacy atau s25-reported. Jangan mengganti versi tanpa alasan.
+Pertahankan instalasi yang berfungsi. Jika belum selesai, lanjutkan pemasangan UI
+KingInstaller, backup dan impor ZIP preset publik, lalu buka ulang dan verifikasi
+suara id-ID serta URL TV. Penyalinan ZIP bukan impor. Uji DHU dan mobil terpisah
+saat parkir; jangan membuka pembatasan keyboard. Jangan root, uninstall, clear data,
+downgrade atau memublikasikan data pribadi. Laporkan bukti dan fitur belum diuji.
 ```

@@ -23,7 +23,9 @@ foreach ($entry in (Get-SetupLock).artifacts) {
     [pscustomobject]@{ Artifact = $entry.id; Version = $entry.version; SHA256 = 'OK'; Path = $verified }
 }
 if ($IncludeSources) {
-    $sources = Get-Content -LiteralPath (Join-Path $script:SetupRoot 'source-archives.lock.json') -Raw | ConvertFrom-Json
+    $sourceLock = 'source-archives.lock.json'
+    if ($env:FERMATA_SETUP_PROFILE -eq 's25-reported') { $sourceLock = 'profiles/s25-sources.lock.json' }
+    $sources = Get-Content -LiteralPath (Join-Path $script:SetupRoot $sourceLock) -Raw | ConvertFrom-Json
     foreach ($entry in $sources.archives) {
         $path = Join-Path $directory $entry.fileName
         if (!(Test-Path -LiteralPath $path)) {

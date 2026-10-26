@@ -1,5 +1,13 @@
 # Third-party components
 
+The `s25-reported` profile additionally downloads official Fermata 2.0.2 and
+KingInstaller 2.4. Their original source snapshots are pinned in
+`profiles/s25-sources.lock.json` and retrieved by `Get-Artifacts.ps1 -IncludeSources`
+with that profile selected. The app source in this checkout remains 2.0.1.
+The public TV playlist is maintained by iptv-org; channel content and availability
+remain the responsibility of the respective providers. The preset references its
+public URL and does not include copies of broadcasts.
+
 This kit does not claim ownership of Fermata, KingInstaller, Shizuku, Android
 Platform Tools, or DHU. Application binaries are unchanged upstream releases.
 Added setup scripts and documentation follow the repository's GPL-3.0 license;

@@ -16,11 +16,15 @@ $crash = (Invoke-DeviceAdb $adb $device @('logcat','-b','crash','-d')) -join "`n
 $overlay = (Invoke-DeviceAdb $adb $device @('shell','appops','get',$pkg,'SYSTEM_ALERT_WINDOW')) -join "`n"
 $installer = Get-PackageField $dump 'installerPackageName'
 $initiator = Get-PackageField $dump 'initiatingPackageName'
+$expectedVersion = ((Get-SetupLock).artifacts | Where-Object { $_.id -eq 'fermata' }).version
 $result = [pscustomobject][ordered]@{
     ObservedAt = (Get-Date).ToUniversalTime().ToString('o')
+    SetupProfile = $(if ($env:FERMATA_SETUP_PROFILE) { $env:FERMATA_SETUP_PROFILE } else { 's23-legacy' })
     Model = ((Invoke-DeviceAdb $adb $device @('shell','getprop','ro.product.model')) -join '').Trim()
     Android = ((Invoke-DeviceAdb $adb $device @('shell','getprop','ro.build.version.release')) -join '').Trim()
     FermataVersion = Get-PackageField $dump 'versionName'
+    ExpectedFermataVersion = $expectedVersion
+    MatchesSelectedVersion = ((Get-PackageField $dump 'versionName') -eq $expectedVersion)
     AndroidAutoVersion = Get-PackageField $aa 'versionName'
     InstallerPackage = $installer
     InitiatingPackage = $initiator
@@ -35,6 +39,7 @@ $result = [pscustomobject][ordered]@{
     FermataCrashInAvailableBuffer = ($crash -match ('Process:\s*' + [regex]::Escape($pkg) + '(?:,|\s|$)'))
     VideoVisuallyVerified = 'Manual check required: changing frames in DHU'
     PhysicalCarVerified = $false
+    PublicPresetImported = 'Manual check required: native import, reopen, voice id-ID and TV source indo'
     Note = 'Service declarations and installer records do not prove host acceptance. Crash buffer covers only retained logs.'
 }
 if ($OutFile) {

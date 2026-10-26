@@ -1,16 +1,18 @@
-## Samsung S23: konfigurasi yang teruji
+## Fermata Samsung: pemasangan melalui agent
 
-Branch ini berangkat dari source Fermata **2.0.1**, commit
-`7be970dbc1d68f674886af3e9a4e4ad838e56bc4`. Kode aplikasi upstream tidak diubah.
-Tambahan ada di **[samsung-setup/README.id.md](samsung-setup/README.id.md)**:
-versi APK yang dipatok, checksum, KingInstaller 2.3, Shizuku opsional, DHU 2.1,
-skrip PowerShell, dan **[prompt pemasangan](samsung-setup/prompts/SETUP.id.md)**.
+Kit mendukung profil S23 **Fermata 2.0.1 + KingInstaller 2.3** yang diuji di DHU,
+dan profil S25 Ultra **2.0.2 + 2.4** berdasarkan laporan pengguna.
+Model Samsung lain belum dijamin kompatibel. Source aplikasi tetap 2.0.1;
+profil baru mengunduh APK resmi upstream 2.0.2, bukan hasil build branch ini.
 
-Fermata Auto dan video YouTube berhasil diuji di DHU pada Galaxy S23 / Android 16 /
-One UI 8.5 / Android Auto 17.8.663874. Pemasangan berhasil melalui KingInstaller
-metode biasa; tidak memerlukan Shizuku atau root pada perangkat yang diuji.
-Hasil di head unit mobil fisik belum diverifikasi. APK di kit adalah rilis resmi
-upstream, bukan hasil build ulang dari fork ini.
+- [Mulai dan pilih profil](samsung-setup/README.id.md)
+- [PDF panduan instalasi melalui agent](samsung-setup/docs/INSTALASI-AGENT.id.pdf)
+- [Prompt lengkap](samsung-setup/prompts/SETUP.id.md) dan [prompt per tahap](samsung-setup/prompts/STEPS.id.md)
+- [Preset publik dengan URL TV](samsung-setup/preferences/README.id.md)
+- [Kompatibilitas dan batas bukti](samsung-setup/docs/COMPATIBILITY.id.md)
+
+Fermata 2.0.2 menonaktifkan FS Mirror menurut upstream. Preset tidak membuka
+pembatasan keyboard kendaraan. Backup dan bukti pribadi tidak dimasukkan ke Git.
 
 ---
 

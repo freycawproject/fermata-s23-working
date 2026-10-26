@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "verifiedDate": null,
+  "upstream": {
+    "repository": "https://github.com/AndreyPavlenko/Fermata",
+    "tag": "2.0.1",
+    "commit": "7be970dbc1d68f674886af3e9a4e4ad838e56bc4",
+    "note": "Local app source remains 2.0.1; this profile downloads official 2.0.2 APK, not a build of this branch."
+  },
+  "deviceBaseline": {
+    "model": "Galaxy S25 Ultra (reported)",
+    "android": "17 (reported)",
+    "oneUi": "not reported",
+    "androidAuto": "17.9 (reported)",
+    "abi": "arm64-v8a (required by this APK; verify on device)"
+  },
+  "fermataPackage": "me.aap.fermata.auto.dear.google.why",
+  "artifacts": [
+    {
+      "id": "fermata",
+      "version": "2.0.2",
+      "fileName": "fermata-auto-2.0.2-arm64.apk",
+      "optional": false,
+      "size": 152635725,
+      "sha256": "9833785e13a8f54afecd877f06ae579d7d245bcd5d218576af98000c4089decd",
+      "hashSource": "GitHub official release asset digest; verify downloaded bytes before installation",
+      "url": "https://github.com/AndreyPavlenko/Fermata/releases/download/2.0.2/fermata-auto-2.0.2-arm64.apk",
+      "sourceUrl": "https://github.com/AndreyPavlenko/Fermata/tree/2.0.2",
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "kinginstaller",
+      "version": "2.4",
+      "package": "com.example.kinginstaller",
+      "fileName": "KingInstaller-v2.4.apk",
+      "optional": false,
+      "size": 8837388,
+      "sha256": "0ba7333690dac333ad6cd98d5db06bfa1b87a665a3118034c2d90b2962b830df",
+      "hashSource": "GitHub official release asset digest; verify downloaded bytes before installation",
+      "url": "https://github.com/fcaronte/KingInstaller/releases/download/2.4/KingInstaller-v2.4.apk",
+      "sourceUrl": "https://github.com/fcaronte/KingInstaller/tree/2.4",
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "shizuku",
+      "version": "13.6.0.r1086.2650830c",
+      "package": "moe.shizuku.privileged.api",
+      "fileName": "shizuku-v13.6.0.r1086.2650830c-release.apk",
+      "optional": true,
+      "size": 2571773,
+      "sha256": "6e273ab0e991c4e79bc8b1bbb9b9dd739ccac1a8712a541a214078886b7b790f",
+      "hashSource": "Local SHA256 of official release downloaded in the original session; upstream asset digest unavailable",
+      "url": "https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk",
+      "sourceUrl": "https://github.com/RikkaApps/Shizuku/tree/v13.6.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "dhu",
+      "version": "2.1-preview-windows",
+      "fileName": "desktop-head-unit-windows-x64_r02.1.zip",
+      "optional": false,
+      "size": 7012059,
+      "sha256": "46f84b65b0862d5b548e46b976615a5db1853535732a728c875792ec166ae721",
+      "sha1": "c27bf84e59dda7b79315b6ca2a314063feffd6ac",
+      "hashSource": "Google SDK repository SHA1; local SHA256 of matching archive",
+      "url": "https://dl.google.com/android/repository/desktop-head-unit-windows-x64_r02.1.zip",
+      "sourceUrl": "https://developer.android.com/training/cars/testing/dhu",
+      "license": "Android SDK terms and bundled notices"
+    },
+    {
+      "id": "platform-tools",
+      "version": "37.0.1-windows",
+      "fileName": "platform-tools_r37.0.1-win.zip",
+      "optional": false,
+      "size": 8044989,
+      "sha256": "45f4d63113e895ebde0c90f194099a4676b6ac653bd28d54314a9e022bbc1a99",
+      "sha1": "e03e78b1d80b396f1c3358e31251cb31740e1110",
+      "hashSource": "Google SDK repository SHA1; local SHA256 of matching archive",
+      "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-win.zip",
+      "sourceUrl": "https://developer.android.com/tools/releases/platform-tools",
+      "license": "Android SDK terms and bundled notices"
+    }
+  ],
+  "reportedDate": "2026-10-26",
+  "evidence": "User-reported working on S25 Ultra; not independently verified by agent",
+  "apkSource": {
+    "repository": "https://github.com/AndreyPavlenko/Fermata",
+    "tag": "2.0.2"
+  }
+}

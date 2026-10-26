@@ -3,7 +3,15 @@ $ErrorActionPreference = 'Stop'
 $script:SetupRoot = Split-Path -Parent $PSScriptRoot
 
 function Get-SetupLock {
-    Get-Content -LiteralPath (Join-Path $script:SetupRoot 'versions.lock.json') -Raw | ConvertFrom-Json
+    $name = 'versions.lock.json'
+    if ($env:FERMATA_SETUP_PROFILE) {
+        switch ($env:FERMATA_SETUP_PROFILE) {
+            's23-legacy' { }
+            's25-reported' { $name = 'profiles/s25-reported.lock.json' }
+            default { throw 'Unknown FERMATA_SETUP_PROFILE. Use s23-legacy or s25-reported.' }
+        }
+    }
+    Get-Content -LiteralPath (Join-Path $script:SetupRoot $name) -Raw | ConvertFrom-Json
 }
 
 function Get-ArtifactPath([string]$Id) {

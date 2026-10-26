@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<map>
+  <boolean name="HIDE_BARS_AA" value="true" />
+  <boolean name="FULLSCREEN" value="true" />
+  <boolean name="LANDSCAPE_VIDEO" value="true" />
+  <string name="VOICE_CONTROL_LANG">id-ID</string>
+  <boolean name="HIDE_BARS" value="true" />
+  <int name="THEME_MAIN" value="3" />
+  <boolean name="FULLSCREEN_AA" value="true" />
+  <boolean name="VOICE_CONTROl_ENABLED" value="true" />
+  <boolean name="VOICE_CONTROl_FB" value="true" />
+</map>

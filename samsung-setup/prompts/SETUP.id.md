@@ -1,83 +1,64 @@
-# Prompt untuk agen Android QA / Automation
+# Prompt pemasangan melalui agent
 
-Salin isi blok berikut ke agen yang memiliki akses terminal Windows dan ADB:
+Salin blok ini ke agent yang memiliki terminal Windows, akses berkas dan ADB.
+Selesaikan pairing Wireless debugging bila agent tidak bisa mengakses dialog HP.
 
 ```text
 Bertindak sebagai Android QA & Automation Engineer. Saya mengizinkan pemasangan
-dan konfigurasi Fermata Auto menggunakan kit di folder samsung-setup pada repo ini.
-HP tersambung melalui Wireless debugging. Kerjakan sampai pengujian yang dapat
-dilakukan selesai; bila ada batas nyata, laporkan bukti dan pekerjaan tersisa.
+dan konfigurasi Fermata melalui kit samsung-setup dalam repo ini. Kerjakan
+tindakan rutin sampai hasil bisa diverifikasi. Pengguna membantu dialog HP yang
+tidak dapat dijangkau alat. Jangan mengklaim langkah layar sudah selesai tanpa bukti.
 
-BACA DULU:
-- samsung-setup/README.id.md
-- samsung-setup/versions.lock.json
-- samsung-setup/docs/INSTALL.id.md
-- samsung-setup/docs/VERIFIED.id.md
+BACA: samsung-setup/README.id.md, docs/COMPATIBILITY.id.md, docs/INSTALL.id.md,
+preferences/README.id.md, versions.lock.json dan profiles/s25-reported.lock.json.
+PDF docs/INSTALASI-AGENT.id.pdf adalah panduan pengguna. Prompt per tahap ada di
+prompts/STEPS.id.md. Kode aplikasi branch masih 2.0.1; APK profil baru resmi 2.0.2.
 
-BASELINE YANG SUDAH BERHASIL:
-Samsung Galaxy S23 SM-S911B arm64, Android 16 / One UI 8.5,
-Android Auto 17.8.663874-release, Fermata Auto 2.0.1 arm64 resmi,
-KingInstaller 2.3 metode biasa, dan DHU 2.1 preview Windows.
-Shizuku 13.6.0 disertakan sebagai opsi cadangan; bukan syarat jalur berhasil.
-Jangan menyamakan hasil build ulang fork dengan APK resmi yang diuji.
-
-BATAS:
-- Jangan root, unlock bootloader, uninstall Fermata, hapus data, atau downgrade
-  Android Auto. Jika tindakan berisiko kehilangan data diperlukan, siapkan backup
-  konkret dan jelaskan alasan sebelum meminta persetujuan khusus.
-- Jangan otomatis memakai versi terbaru; patuhi versi, ukuran, dan SHA256 lock.
-- Jangan memasang Fermata dengan adb install/pm install -i sebagai pengganti
-  KingInstaller: itu dapat mengembalikan initiator ke com.android.shell.
-- Targetkan perangkat eksplisit dan user 0; jangan mengakses Secure Folder.
-- Jangan membaca email, akun, galeri, atau file pribadi yang tidak diperlukan.
-- Jangan memublikasikan log atau screenshot pribadi. Pakai laporan ringkas yang
-  disanitasi. Jangan mencetak token atau credential.
-- Jika alat menolak perintah, bedakan penolakan alat dari Auto Blocker Samsung.
-  Jangan menyatakan HP menolak APK bila perintah belum sampai ke HP.
+PROFIL:
+- s23-legacy: Fermata 2.0.1 + KingInstaller 2.3, baseline S23 Android16/OneUI8.5.
+- s25-reported: Fermata 2.0.2 + KingInstaller 2.4, dilaporkan pengguna berhasil pada
+  S25 Ultra Android17/AA17.9, belum diverifikasi agent. FS Mirror dinonaktifkan 2.0.2.
+- Samsung lain belum diuji. Audit ABI (kit arm64), versi terpasang, kebutuhan fitur
+  dan pilih profil dengan alasan. Jangan menjanjikan semua Samsung kompatibel.
 
 LANGKAH:
-1. Temukan ADB, jalankan adb devices -l, pilih koneksi wireless yang aktif.
-   Jangan mematok IP, port, serial, PID, display ID, atau koordinat sesi lama.
-   Catat model, Android, ABI, serta versi AA dan Fermata yang sekarang terpasang.
-2. Jalankan Get-Artifacts.ps1 -IncludeOptional dan verifikasi seluruh checksum.
-   Untuk kit offline gunakan -VerifyOnly -IncludeOptional agar tidak mengunduh.
-   Jalankan Install-DesktopTools.ps1 bila ADB/DHU kit belum diekstrak.
-3. Audit instalasi saat ini dengan Verify-Phone.ps1. Jika versi dan catatan
-   installer sudah sesuai, pertahankan dan langsung lakukan uji fungsional.
-4. Bila perlu memasang ulang, jalankan Prepare-Phone.ps1. Gunakan KingInstaller
-   classic dahulu, semua switch OFF. Pilih APK Fermata 2.0.1 arm64, Install as
-   king, Package installer, Just once, lalu Install atau Update versi sama.
-   Pertahankan data. Jika sudah ada versi lebih baru, berhenti untuk merencanakan
-   backup alih-alih uninstall/downgrade diam-diam.
-5. Pada otomasi DeX, periksa display, paket layar, dan bounds sebelum ketukan.
-   Gunakan dump XML baru. Jika dump gagal, jangan memakai file lama atau mengetuk
-   koordinat kosong. Periksa screenshot display yang benar. Selesaikan izin
-   instalasi/media yang relevan; jangan mengaktifkan semua permission tanpa alasan.
-6. Audit kembali. Pola yang dicapai pada perangkat teruji:
-   installerPackageName=com.android.vending
-   initiatingPackageName=com.google.android.packageinstaller
-   originatingPackageName=com.example.kinginstaller
-   Installer vending saja, atau initiator sekadar bukan shell, tidak cukup untuk
-   mengklaim penerimaan Android Auto. Jika sudah cocok, jangan lanjut Shizuku.
-7. Hanya jika classic gagal, install/jalankan Shizuku melalui Start-Shizuku.ps1,
-   izinkan akses KingInstaller, coba metode Shizuku, kemudian audit lagi. Jangan
-   klaim metode ini pasti bekerja pada semua Samsung. Hindari polling tak terbatas.
-8. Buka Fermata, pastikan izin fitur yang diuji tersedia, periksa service dan
-   proses. Jangan membersihkan logcat sebelum bukti masalah sempat disimpan secara
-   terbatas. Bedakan crash Fermata dari crash Android Auto atau aplikasi lain.
-9. Di Android Auto aktifkan Start head unit server, lalu Start-DHU.ps1. Jalankan
-   DHU terlihat di laptop. Pilih Fermata Auto ikon play biru, bukan hanya Media
-   Service atau FS Mirror. Buka YouTube dan uji video. Verifikasi perubahan adegan,
-   status PLAYING, dan pause/resume. Thumbnail atau PID hidup bukan bukti video.
-10. Jika diminta, uji mobil terpisah saat parkir. Keberhasilan DHU tidak membuktikan
-    validasi production head unit. Unknown sources membantu media, tetapi tidak
-    otomatis membuka komponen proyeksi. FS Mirror adalah pengujian terpisah.
+1. Temukan ADB dan koneksi aktif, targetkan serial eksplisit serta profil utama
+   user 0. Catat model, Android/OneUI/ABI dan versi lengkap aplikasi. Jangan
+   membaca akun, galeri, email, Secure Folder atau file pribadi di luar kebutuhan.
+2. Pada proses PowerShell yang dipakai semua skrip, atur
+   $env:FERMATA_SETUP_PROFILE = 's25-reported' atau 's23-legacy' sesuai keputusan.
+   Default tanpa variabel tetap profil lama. Jangan memilih versi latest otomatis.
+3. Get-Artifacts.ps1 memeriksa ukuran/SHA256. Install-DesktopTools.ps1 menyiapkan
+   alat bila belum ada. Verify-Phone.ps1 mengaudit instalasi. Jika sudah berfungsi,
+   pertahankan. Jangan memakai adb install/pm install -i untuk memasang Fermata.
+4. Bila diperlukan, Prepare-Phone.ps1 -Serial '<serial>' memasang KingInstaller,
+   menyalin APK profil dan ZIP preset ke Download. Gunakan UI KingInstaller,
+   classic dahulu, switch Root/Shizuku/Oppo OFF. Chooser Package installer bila
+   muncul > Just once > Install/Update APK yang dipilih. Jangan downgrade,
+   uninstall, clear data, root, unlock bootloader atau mengganti signing.
+5. Periksa UI/display dan bounds terbaru, terutama DeX. Jangan menggunakan dump
+   lama setelah kegagalan. Jika akses alat terbatas, minta bantuan pengguna untuk
+   langkah tertentu tanpa mengarang hasil. Bedakan penolakan alat dan Auto Blocker.
+6. Setelah pemasangan buka Fermata di HP, berikan izin yang relevan. Ekspor backup
+   preferensi lama, simpan lokal. Import preferences menggunakan ZIP PUBLIK
+   Download/fermata-samsung-public-v1.zip, bukan cadangan pribadi pemilik repo.
+   Jangan ekstrak ZIP. Setelah aplikasi menutup, buka kembali. Penyalinan bukan impor.
+7. Verifikasi Voice control aktif, bahasa id-ID, tampilan dan TV indo. URL TV
+   dipertahankan di preset. Jangan menghapus playlist pengguna lain; jika sumber ID
+   1 sudah dipakai, jelaskan potensi tertimpa dan simpan backup sebelum impor.
+8. Audit versi dan tiga field installer. Bandingkan pola S23 sebagai referensi,
+   bukan bukti universal. Jika berfungsi, jangan lanjut Shizuku. Jika classic gagal,
+   kumpulkan bukti terbatas lalu pertimbangkan Shizuku; root di luar lingkup.
+9. Uji DHU terlihat jika tersedia, melalui Start head unit server lalu Start-DHU.ps1.
+   Buka Fermata Auto ikon play biru, uji video dengan adegan berubah dan play/pause.
+   Uji audio terdengar, TV dan suara masing-masing; jangan mengasumsikan hasilnya.
+10. Mobil diuji terpisah saat parkir. Keyboard di posisi P dan pembatasan Android
+    Auto tetap berlaku; jangan memodifikasi sensor kendaraan/pembatasan keselamatan.
 
-LAPORAN AKHIR:
-Tabel versi, tiga field installer, service, runtime/crash, gambar video di DHU,
-play/pause, dan status pengujian mobil. Tandai BELUM DIUJI jika tidak ada bukti.
-Jelaskan perubahan yang dilakukan dan batas hasilnya. Simpan bukti lokal yang
-relevan; jangan upload data perangkat. Jangan menyatakan semua tes lulus bila
-simulator atau mobil belum berhasil. Lanjutkan tindakan rutin yang sudah saya
-izinkan tanpa meminta konfirmasi ulang.
+LAPORAN: versi, profil, metode, tiga field installer, status impor preset, URL TV
+terdaftar, DHU, mobil, YouTube/TV/audio/keyboard/suara/FS Mirror. Gunakan BERHASIL,
+GAGAL atau BELUM DIUJI disertai bukti. Jangan menyatakan FS Mirror 2.0.2 bekerja
+tanpa bukti tersendiri. Jangan mengunggah logcat, backup, token, serial atau
+screenshot pribadi. Jangan memublikasikan apa pun di akun pengguna tanpa instruksi.
+Lanjutkan pekerjaan rutin yang sudah diizinkan; minta bantuan hanya pada batas nyata.
 ```

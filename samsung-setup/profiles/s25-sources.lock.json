@@ -1,0 +1,23 @@
+﻿{
+    "description":  "Official source snapshots for s25-reported profile; local application source remains 2.0.1.",
+    "archives":  [
+                     {
+                         "fileName":  "Fermata-2.0.2-source.tar.gz",
+                         "url":  "https://api.github.com/repos/AndreyPavlenko/Fermata/tarball/2.0.2",
+                         "size":  1848416,
+                         "sha256":  "9487ef917e1a7c03883b1b1a01f0e5efe6a7cab304ab545de431d2e74a39512c"
+                     },
+                     {
+                         "fileName":  "KingInstaller-2.4-source.tar.gz",
+                         "url":  "https://api.github.com/repos/fcaronte/KingInstaller/tarball/2.4",
+                         "size":  632237,
+                         "sha256":  "174e75a5fb5e812397e396eb649cdffbdea251c188d2c184417e0dc366a23a69"
+                     },
+                     {
+                         "fileName":  "Shizuku-13.6.0-source.tar.gz",
+                         "url":  "https://api.github.com/repos/RikkaApps/Shizuku/tarball/v13.6.0",
+                         "size":  360878,
+                         "sha256":  "40cd341ba8619ad75bb47cec392d7a698691f918713dc06efa1d20f49e938738"
+                     }
+                 ]
+}
